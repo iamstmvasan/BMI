@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         img_bmi = findViewById(R.id.bmi_img);
 
 
-
+        
         img_male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +95,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //set max value to height seekbar by default minimum is 0
         height_bar.setMax(400);
+        //to get value from height seekbar
         height_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -114,7 +116,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //set max value to weight seekbar by default minimum is 0
         weight_bar.setMax(200);
+        //to get value from weight seekbar
         weight_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -133,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //if you could not fix correct height value in seekbar use this (+ and -) button to increment and decrement weight value
         height_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //if you could not fix correct weight value in seekbar use this (+ and -) button to increment and decrement weight value
         weight_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,13 +187,14 @@ public class MainActivity extends AppCompatActivity {
                     bmi_res.setVisibility(View.VISIBLE);
 
 
-                    usr_height /= 100;
-                    usr_height = usr_height * usr_height;
-                    val = usr_weight / usr_height;
+                    usr_height /= 100;  //to conert centimeter to meter
+                    usr_height = usr_height * usr_height;   //to convert meter square
+                    val = usr_weight / usr_height;  //to find bmi value
 
-                    String value = String.format("%.2f", val);
+                    String value = String.format("%.2f", val);     //number formatting
                     bmi_val.setText(value);
 
+                    //to find our bmi result based on bmi value
                     if (val < 18.5) {
                         bmi_res.setText("UNDERWEIGHT ~ EAT MORE");
                     }
