@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         img_gender = findViewById(R.id.imageView3);
         img_bmi = findViewById(R.id.bmi_img);
 
-
-        
         img_male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 txt_female.setVisibility(View.INVISIBLE);
                 txt_gender.setVisibility(View.VISIBLE);
 
-                img_gender.setImageResource(R.drawable.male);
+                img_gender.setImageResource(R.drawable.m_user);
                 txt_gender.setText("MALE");
             }
         });
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 txt_female.setVisibility(View.INVISIBLE);
                 txt_gender.setVisibility(View.VISIBLE);
 
-                img_gender.setImageResource(R.drawable.female);
+                img_gender.setImageResource(R.drawable.f_user);
                 txt_gender.setText("FEMALE");
             }
         });
@@ -197,15 +195,19 @@ public class MainActivity extends AppCompatActivity {
                     //to find our bmi result based on bmi value
                     if (val < 18.5) {
                         bmi_res.setText("UNDERWEIGHT ~ EAT MORE");
+                        img_bmi.setImageResource(R.drawable.u_wt);
                     }
                     else if (val < 24.9) {
                         bmi_res.setText("HEALTHY ~ ENJOY");
+                        img_bmi.setImageResource(R.drawable.health);
                     }
                     else if (val < 29.9) {
                         bmi_res.setText("OVERWEIGHT ~ DO EXERCISE");
+                        img_bmi.setImageResource(R.drawable.ovr_wt);
                     }
                     else if (val >= 30) {
-                        bmi_res.setText("OBESE ~ DO DIET & EXERCISE");
+                        bmi_res.setText("OBESE ~ Consult a Doctor");
+                        img_bmi.setImageResource(R.drawable.obese);
                     }
                 }
                 else{
