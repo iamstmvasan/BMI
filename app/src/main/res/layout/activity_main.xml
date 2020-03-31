@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#49A8DE"
+        app:layout_constraintBottom_toBottomOf="@+id/bmi_result"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp"
+        android:theme="@style/ToolbarTheme"/>
+
     <ImageView
         android:id="@+id/imageView"
 
@@ -14,10 +26,10 @@
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.391"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112"
+        app:layout_constraintVertical_bias="0.151"
         app:srcCompat="@drawable/m_user" />
 
     <ImageView
@@ -30,7 +42,7 @@
         app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112"
+        app:layout_constraintVertical_bias="0.151"
         app:srcCompat="@drawable/f_user" />
 
     <TextView
@@ -42,10 +54,10 @@
         android:text="MALE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintVertical_bias="0.231" />
 
     <TextView
         android:id="@+id/textView2"
@@ -59,7 +71,7 @@
         app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintVertical_bias="0.231" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -71,7 +83,7 @@
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12"
+        app:layout_constraintVertical_bias="0.146"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
@@ -86,7 +98,23 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.084" />
+
+    <TextView
+        android:id="@+id/change"
+        android:layout_width="350dp"
+        android:layout_height="32dp"
+        android:fontFamily="@font/arbutus"
+        android:gravity="center"
+        android:text="(click image again to change gender)"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.236" />
 
     <Button
         android:id="@+id/bmi_calc"
@@ -163,28 +191,28 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="88dp"
+        android:layout_width="130dp"
         android:layout_height="35dp"
         android:fontFamily="@font/arbutus"
-        android:text="Height"
+        android:text="Height(cm)"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383" />
+        app:layout_constraintVertical_bias="0.387" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="88dp"
+        android:layout_width="130dp"
         android:layout_height="35dp"
         android:fontFamily="@font/arbutus"
-        android:text="Weight"
+        android:text="Weight(kg)"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.531" />

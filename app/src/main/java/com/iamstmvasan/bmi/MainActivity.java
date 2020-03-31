@@ -1,7 +1,11 @@
 package com.iamstmvasan.bmi;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,12 +13,16 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
 
 public class MainActivity extends AppCompatActivity {
     ImageView img_male , img_female , img_gender ,img_bmi;
-    TextView txt_male , txt_female ,txt_gender , bmi_val , bmi_res  , height_val , weight_val;
+    TextView txt_male , txt_female ,txt_gender ,txt_change , bmi_val , bmi_res  , height_val , weight_val;
     Button height_add , height_sub , weight_add , weight_sub , bmi_calc ;
-
+    Toolbar toolbar;
     SeekBar height_bar , weight_bar;
 
     float usr_weight , usr_height , val ;
@@ -23,9 +31,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         txt_male = findViewById(R.id.textView);
         txt_female = findViewById(R.id.textView2);
         txt_gender = findViewById(R.id.textView3);
+        txt_change = findViewById(R.id.change);
 
         height_bar = findViewById(R.id.seekBar_h);
         weight_bar = findViewById(R.id.seekBar_w);
@@ -48,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
         img_gender = findViewById(R.id.imageView3);
         img_bmi = findViewById(R.id.bmi_img);
 
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("BMI");
+
+        toolbar.setTitleTextColor(Color.WHITE);
+
+
+
         img_male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
                 txt_male.setVisibility(View.INVISIBLE);
                 txt_female.setVisibility(View.INVISIBLE);
                 txt_gender.setVisibility(View.VISIBLE);
+                txt_change.setVisibility(View.VISIBLE);
+
+                bmi_val.setVisibility(View.INVISIBLE);
+                img_bmi.setVisibility(View.INVISIBLE);
+                bmi_res.setVisibility(View.INVISIBLE);
 
                 img_gender.setImageResource(R.drawable.m_user);
                 txt_gender.setText("MALE");
@@ -74,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
                 txt_male.setVisibility(View.INVISIBLE);
                 txt_female.setVisibility(View.INVISIBLE);
                 txt_gender.setVisibility(View.VISIBLE);
+                txt_change.setVisibility(View.VISIBLE);
+
+                bmi_val.setVisibility(View.INVISIBLE);
+                img_bmi.setVisibility(View.INVISIBLE);
+                bmi_res.setVisibility(View.INVISIBLE);
 
                 img_gender.setImageResource(R.drawable.f_user);
                 txt_gender.setText("FEMALE");
@@ -87,9 +117,14 @@ public class MainActivity extends AppCompatActivity {
                 img_male.setVisibility(View.VISIBLE);
                 img_female.setVisibility(View.VISIBLE);
 
+                bmi_val.setVisibility(View.INVISIBLE);
+                img_bmi.setVisibility(View.INVISIBLE);
+                bmi_res.setVisibility(View.INVISIBLE);
+
                 txt_male.setVisibility(View.VISIBLE);
                 txt_female.setVisibility(View.VISIBLE);
                 txt_gender.setVisibility(View.INVISIBLE);
+                txt_change.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -99,6 +134,11 @@ public class MainActivity extends AppCompatActivity {
         height_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                bmi_val.setVisibility(View.INVISIBLE);
+                img_bmi.setVisibility(View.INVISIBLE);
+                bmi_res.setVisibility(View.INVISIBLE);
+
                 usr_height = height_bar.getProgress();
                 height_val.setText(String.valueOf(usr_height));
             }
@@ -120,6 +160,11 @@ public class MainActivity extends AppCompatActivity {
         weight_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                bmi_val.setVisibility(View.INVISIBLE);
+                img_bmi.setVisibility(View.INVISIBLE);
+                bmi_res.setVisibility(View.INVISIBLE);
+
                 usr_weight = weight_bar.getProgress();
                 weight_val.setText(String.valueOf(usr_weight));
             }
@@ -218,4 +263,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.about_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.about){
+            Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(MainActivity.this,Main2Activity.class);
+            startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

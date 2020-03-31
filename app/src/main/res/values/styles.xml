@@ -1,11 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#49A8DE</item>
         <item name="colorPrimaryDark">#49A8DE</item>
         <item name="colorAccent">#49A8DE</item>
+    </style>
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/arbutus</item>
+        <item name="android:textColorSecondary">#fff</item>
     </style>
 
 </resources>
